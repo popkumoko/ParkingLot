@@ -2,9 +2,9 @@
 
 const express = require('express');
 const mongoose = require('mongoose');
-const config = require('./config/config');
+const config = require('./src/config/config');
 const app = express();
-const routes_v1 = require('./api/v1/routes');
+const routes_v1 = require('./src/api/v1/routes');
 
 app.use(express.json());
 
