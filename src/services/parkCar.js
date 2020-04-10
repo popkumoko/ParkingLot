@@ -4,7 +4,7 @@ const _ = require('lodash');
 const Joi = require('joi');
 const moment = require('moment-timezone');
 
-const getFreeSlot = async(numberPlate, type) => {
+const getFreeSlotForPark = async(numberPlate, type) => {
   const schema = Joi.object().keys({
     numberPlate: Joi.string(),
     type: Joi.string(),
@@ -21,7 +21,7 @@ const getFreeSlot = async(numberPlate, type) => {
   }
 
   await ParkCarModel.create({
-    numberPlate: numberPlate,
+    numberPlate: numberPlate.toLowerCase(),
     slotCode: freeSlot[0].slotCode,
     timeIn: new Date(),
     type: type,
@@ -68,7 +68,7 @@ const getAllNumberPlateByCarSize = async(type) => {
 }
 
 module.exports = {
-  getFreeSlot,
+  getFreeSlotForPark,
   leaveParkCar,
   getAllNumberPlateByCarSize
 };

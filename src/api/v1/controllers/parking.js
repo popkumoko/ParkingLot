@@ -3,23 +3,6 @@ const httpStatus = require('http-status');
 const { parkingLotService, parkCarService } = require('../../../services');
 
 const createParkingLot = async (req, res) => {
-  // {
-  //   parkingSmall: {
-  //     pricePerHour: 20,
-  //     slotStart: 1,
-  //     slotEnd: 30,
-  //   },
-  //   parkingMedium: {
-  //     pricePerHour: 30,
-  //     slotStart: 31,
-  //     slotEnd: 60,
-  //   },
-  //   parkingLarge: {
-  //     pricePerHour: 40,
-  //     slotStart: 61,
-  //     slotEnd: 100,
-  //   }
-  // }
   const payload = { ...req.body };
 
   const duplicateSlot = await parkingLotService.createParkingLot(payload);
@@ -32,7 +15,7 @@ const createParkingLot = async (req, res) => {
 
 const createParkCar = async (req, res) => {
   const payload = { ...req.body };
-  const result = await parkCarService.getFreeSlot(payload.numberPlate, payload.type);
+  const result = await parkCarService.getFreeSlotForPark(payload.numberPlate, payload.type);
   res.status(httpStatus.OK).send(result);
 };
 
