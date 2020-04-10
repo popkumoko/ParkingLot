@@ -104,7 +104,7 @@ If don't have data will throw error
 ```
 
 Data return
-```
+```JavaScript
 [
     {
         "type": "small",
@@ -131,7 +131,7 @@ Data return
 ```
 
 Data return
-```
+```JavaScript
 [
     {
         "numberPlate": "lk-2133",
